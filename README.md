@@ -20,10 +20,10 @@ Unlike an `NSArray`, which keeps track of the order of the objects it contains u
 
 ## Instructions
 ### 1. Create some dummy data
-Let's get started by opening up the provided Xcode project and creating data to work with. Instantiate an empty `NSDictionary` called `favoriteBands` in the AppDelegate.m file. Add an `NSLog` to print out the contents of your new `NSDictionary`, as well as your own description of what's being printed, to the console. It should look something like this:
+Let's get started by opening up the provided Xcode project and creating data to work with. Instantiate an empty `NSDictionary` called `favoriteBands` in the AppDelegate.m file, where all your code will go. Add an `NSLog` to print out the contents of your new `NSDictionary`, as well as your own description of what's being printed, to the console when you hit ⌘ + R. It should look something like this:
 
 ```objc
-Contents of favoriteBands dictionary: 
+Here's the empty favoriteBands dictionary: 
 {
 
 }
@@ -32,15 +32,29 @@ Contents of favoriteBands dictionary:
 Great! We've got a place to store your favorite bands. But wait, we can't write to this dictionary as it is...
 
 ### 2. Create a mutable dictionary
-Since we can't write to an `NSDictionary`, we're going to have to create a version we can edit. Go ahead and make an `NSMutableDictionary` by copying our original `favoriteBands` using `mutableCopy`.
+Since we can't write to an `NSDictionary`, we're going to have to create a version we can edit. Go ahead and make an `NSMutableDictionary` from our original `favoriteBands` using the `dictionaryWithDictionary:` method.
+
+> The reason `dictionaryWithDictionary:` is preferable to `mutableCopy` is that we can be certain a new dictionary will be created. If the original object from which we try to create a `mutableCopy` is `nil`, we'll get back `nil`, not a new object.
 
 Now that we've got a dictionary we can edit, let's add in your favorite bands and their albums.
 
 ### 3. Add key-value pairs to the mutable dictionary
+Think of three of your favorite bands or musical artists, then find the titles of your favorite album by each band/artist. With your three artists and three albums, you now have enough information to add key-value pairs into the `favoriteBands` dicionary.
 
+Let's add the first artist-album pair by calling the `setObject:forKey:` method on `favoriteBands`. For the next pair, use the literal syntax and diectly set the value for the key. This line of code should look something like `favoriteBands[@"FAVORITE BAND"] = @"FAVORITE ALBUM"`. Here we're telling the dictionary that the key `FAVORITE BAND` should have the value `FAVORITE ALBUM`.
+
+Choose one of the two methods you just implemented to add your third artist-album pair to `favoriteBands`. Now write an `NSLog` to show the contents of the dictionary now that we've added our favorite bands and albums. The results should be similar to this:
+
+```objc
+Favorite bands and albums:
+{
+	"Queens of the Stone Age" = "Songs for the Deaf",
+	"Death from Above 1979" = "Physical World",
+	"Spoon" = "They Want My Soul"
+}
+```
 
 ### 4. Change the contents of the mutable dictionary
-`setObject:forKey:`
 `removeObjectForKey:`
 
 ### 5. Enumerate a dictionary
@@ -55,8 +69,6 @@ Now that we've got a dictionary we can edit, let's add in your favorite bands an
 * Literal syntax
 * Values and keys as arguments
 * Values and keys as arrays
-
-
 
 ### . Add a dictionary as a value within a dictionary
 
