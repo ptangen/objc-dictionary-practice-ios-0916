@@ -48,8 +48,7 @@ Now that we've got a dictionary we can edit, let's add in your favorite bands an
 
 ### 6. Accessing keys from a dictionary
 `allKeys`
-
-### 7. 
+`keysContaingObject:`
 
 
 ### . Create dictionaries with different syntaxes
