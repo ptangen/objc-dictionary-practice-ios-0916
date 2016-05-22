@@ -70,3 +70,5 @@ Now that we've got a dictionary we can edit, let's add in your favorite bands an
 >
 ### Primitive types vs. Reference types
 All objects in Objective-C are of either Primitive type or Reference type. Reference types are any instantiable class, including Dictionaries and more complex objects, meaning you must create/initialize an instance of the class for it to exist. When you visit the memory location of a Primitive type object, you will see the value of the object. When you visit the memory location of a Reference type object, you will find pointers to other memory locations where the values of the variables inside the object reside.
+
+Great resource: http://rypress.com/tutorials/objective-c/data-types/nsdictionary
