@@ -6,9 +6,9 @@ Dictionaries are a fundamental class in software development, and it's important
 ## Review
 Let's go over what an **`NSDictionary`** is and how it's structured. 
 
-Like an `NSArray`, an `NSDictionary` represents a collection of objects, which are referred to as *values*. You can store objects of any class inside, and those objects can even be `NSArray`s or other `NSDictionaries`.
+Like an `NSArray`, an `NSDictionary` represents a collection of objects, which are referred to as **values**. You can store objects of any class inside, and those objects can even be `NSArray`s or other `NSDictionaries`.
 
-Unlike an `NSArray`, which keeps track of the order of the objects it contains using an index, *the objects contained in an `NSDictionary` are unordered*. Since an unordered jumble of objects by itself isn't very useful, an `NSDictionary` requires that each of its values have a unique *key*. A key may generally be of any object type, but in our examples below the keys will be of type `NSString` to enable the use of [Key-Value Coding](http://nshipster.com/kvc-collection-operators/).
+Unlike an `NSArray`, which keeps track of the order of the objects it contains using an index, *the objects contained in an `NSDictionary` are unordered*. Since an unordered jumble of objects by itself isn't very useful, an `NSDictionary` requires that each of its values have a unique **key**. A key may be of any object type.
 
 > Think of the following stack of cats as an `NSArray`. The cats are stacked in a particular order, from the bottom up, and if you add or remove a cat at a particular location in the stack, the rest of the stack stays in the same order. Taking a cat (and its shelf) from anywhere but the top end of the stack would cause the rest of the cats to shift down and fill the empty space.
 
@@ -48,7 +48,7 @@ Choose one of the two methods you just implemented to add your third artist-albu
 Favorite bands and albums:
 {
 	"Queens of the Stone Age" = "Songs for the Deaf",
-	"Death from Above 1979" = "Physical World",
+	"Death from Above 1979" = "The Physical World",
 	"Spoon" = "They Want My Soul"
 }
 ```
@@ -70,9 +70,30 @@ How could we check that our dictionary contains a given key? What if we just wan
 What if we know that our dictionary contains a certain value, but we don't know what its key or keys are? Or, let's say we know multiple keys have the same value, but we don't know which keys exactly. How might we find those keys? In these instances we could use `keysContaingObject:` on our dictionary, which returns an array of keys whose values match the object we specify.
 
 ### Nested dictionaries
+Let's add some tracks to our favorite albums. Create a new dictionary object for each album and include the track numbers as keys and track titles as values. The track numbers can be written as `NSNumber`s An example might look like this:
+
+```objc
+NSDictionary *physicalWorldTracks = @{  @1 : @"Cheap Talk",
+                                        @2 : @"Right On, Frankenstein!",
+                                        @3 : @"Virgins",
+                                        @4 : @"Always On",
+                                        @5 : @"Crystal Ball",
+                                        @6 : @"White Is Red",
+                                        @7 : @"Trainwreck 1979",
+                                        @8 : @"Nothin' Left",
+                                        @9 : @"Government Trash",
+                                        @10 : @"Gemini",
+                                        @11 : @"The Physical World"  };
+
+```
+
+
+
 `dictionary[@"keyInTopDictionary][@"keyInNestedDictionary"]`
 
 ### Combine contents of dictionaries
+How would you show all the songs from all the albums and a
+
 `addEntriesFromDictionary:`
 
 
