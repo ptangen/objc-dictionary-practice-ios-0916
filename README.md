@@ -90,7 +90,7 @@ Using a `for in` loop, `NSLog` each of the songs in this album. Remember that to
 ### Combine contents of dictionaries
 How would you show all your favorite albums together in a single dictionary without artists? To copy or combine the contents of a dictionary or sub-dictionary into a mutable dictionary, call the method `addEntriesFromDictionary:`. This copies the key-value pairs of the argument dictionary into the `NSMutableDictionary` on which you call the method.
 
-Create a new mutable dictionary called `favoriteAlbums` and add all the album dictionaries into this by iterating over `mFavoriteBands`. Do not hard code any part of this problem.
+Create a new mutable dictionary called `favoriteAlbums` and add all the album dictionaries into this by iterating over `mFavoriteBands`. Do not hard code any part of this problem. `NSLog` the `favoriteAlbums` dictionary to verify your results.
 
 
 > Additional resource: http://rypress.com/tutorials/objective-c/data-types/nsdictionary
