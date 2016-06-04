@@ -19,6 +19,8 @@ Unlike an `NSArray`, which keeps track of the order of the objects it contains u
 ![Dictionary of dogs](http://www.cityofsparks.us/sites/default/files/assets/Dogs%20on%20Leash.png)
 
 ## Instructions
+There are no tests for this lab. All your work will be done in the indicated section of the AppDelegate.m file and you'll use `NSLog`s to check your own progress.
+
 ### Create some dummy data
 Let's get started by opening up the provided Xcode project and creating data to work with. Instantiate an empty `NSDictionary` called `favoriteBands` in the AppDelegate.m file, where all your code will go. Add an `NSLog` to print out the contents of your new `NSDictionary`, as well as your own description of what's being printed, to the console when you hit ⌘ + R. It should look something like this:
 
@@ -60,7 +62,7 @@ Let's say we're no longer fans of one of our former favorite bands, and we there
 What would you use to print to the console just the values within your dictionary? By using a `for in` loop we can iterate over the keys of a dictionary. **But be careful!** Dictionaries should not be altered while iterating directly over them. Bad things will happen. If you intend to change the values within a dictionary through enumeration, do so by creating a snapshot of the keys of the dictionary and iterating over those. Please see [this source](http://rypress.com/tutorials/objective-c/data-types/nsset#enumeration-considerations) for additional information.
 
 ### Retrieving keys from a dictionary
-How can we check if our dictionary contains a certain key? What if we want to print out a list of every keys in our dictionary? Or say we want to check and change one or more values in our dictionary. One method we can call on our dictionary to accomplish these goals is `allKeys`, which returns an `NSArray` that contains (as the name suggests) all the keys in the dictionary. We can iterate over this list of keys to reach the appropriate values within our dictionary.
+How can we check if our dictionary contains a certain key? What if we want to print out a list of every key in our dictionary? Or say we want to check and change one or more values in our dictionary. One method we can call on our dictionary to accomplish these goals is `allKeys`, which returns an `NSArray` that contains (as the name suggests) all the keys in the dictionary. We can iterate over this list of keys to reach the appropriate values within our dictionary.
 
 Create a `for in` loop to iterate over the keys in `mFavoriteBands` and use the `objectForKey` method to print out each value it contains with an `NSLog`. 
 
@@ -94,3 +96,4 @@ Create a new mutable dictionary called `favoriteAlbums` and add all the album di
 
 ## Recap
 That's it for now! You created new objects of type `NSDictionary` and `NSMutableDictionary`, added and removed key-value pairs, enumerated over and examined all the elements in a dictionary, collected all the keys from a dictionary, nested one dictionary inside another, and combined the contents of multiple dictionaries.
+<p class='util--hide'>View <a href='https://learn.co/lessons/objc-dictionary-practice'>Dictionary Practice</a> on Learn.co and start learning to code for free.</p>
