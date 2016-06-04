@@ -92,5 +92,5 @@ How would you show all your favorite albums together in a single dictionary with
 
 Create a new mutable dictionary called `favoriteAlbums` and add all the album dictionaries into this by iterating over `mFavoriteBands`. Do not hard code any part of this problem. `NSLog` the `favoriteAlbums` dictionary to verify your results.
 
-
-> Additional resource: http://rypress.com/tutorials/objective-c/data-types/nsdictionary
+## Recap
+That's it for now! You created new objects of type `NSDictionary` and `NSMutableDictionary`, added and removed key-value pairs, enumerated over and examined all the elements in a dictionary, collected all the keys from a dictionary, nested one dictionary inside another, and combined the contents of multiple dictionaries.
