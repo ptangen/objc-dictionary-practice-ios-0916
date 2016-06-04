@@ -59,13 +59,14 @@ Let's say we're no longer fans of one of our former favorite bands, and we there
 ### Enumerate a dictionary
 What would you use to print to the console just the values within your dictionary? 
 
-By using a `for in` loop we can iterate over the keys of a dictionary. Create a `for in` loop. Inside it  and use `objectForKey`
+By using a `for in` loop we can iterate over the keys of a dictionary. Create a `for in` loop. Inside it
+ and use `objectForKey`
 Literal syntax
 
-> **Warning:** Dictionaries should not be altered while iterating over them. Bad things will happen. If you need to check and potentially change the values within a dictionary, first retrieve and store the relevant keys, then call those keys separately 
+> **Warning:** Dictionaries should not be altered while iterating over them. Bad things will happen. If you intend to change the values within a dictionary through enumeration, do so by creating a snapshot of the keys of the dictionary and iterating over those. Please see [this source](http://rypress.com/tutorials/objective-c/data-types/nsset#enumeration-considerations) for additional information.
 
 ### Retrieving keys from a dictionary
-How could we check that our dictionary contains a given key? What if we just want to print out a list of the keys from our dictionary? Or say we want to change each and every value in our dictionary in some way. One method we can call on our dictionary to solve these problems is `allKeys`, which returns an `NSArray` that contains (as the name indicates) all the keys in the dictionary. We can iterate over this list of keys to reach the appropriate values within our dictionary.
+How can we check if our dictionary contains a certain key? What if we want to print out a list of every keys in our dictionary? Or say we want to check and change one or more values in our dictionary. One method we can call on our dictionary to accomplish these goals is `allKeys`, which returns an `NSArray` that contains (as the name suggests) all the keys in the dictionary. We can iterate over this list of keys to reach the appropriate values within our dictionary.
 
 What if we know that our dictionary contains a certain value, but we don't know what its key or keys are? Or, let's say we know multiple keys have the same value, but we don't know which keys exactly. How might we find those keys? In these instances we could use `keysContaingObject:` on our dictionary, which returns an array of keys whose values match the object we specify.
 
@@ -82,20 +83,17 @@ NSDictionary *physicalWorldTracks = @{  @1 : @"Cheap Talk",
                                         @7 : @"Trainwreck 1979",
                                         @8 : @"Nothin' Left",
                                         @9 : @"Government Trash",
-                                        @10 : @"Gemini",
-                                        @11 : @"The Physical World"  };
+                                       @10 : @"Gemini",
+                                       @11 : @"The Physical World"  };
 
 ```
-
-
-
 
 `dictionary[@"keyInTopDictionary][@"keyInNestedDictionary"]`
 
 ### Combine contents of dictionaries
-How would you show all the songs from all the albums and a
+How would you show all your favorite albums together in a single dictionary without artists? To copy or combine the contents of a dictionary or sub-dictionary into a mutable dictionary, call the method `addEntriesFromDictionary:`. This copies the key-value pairs of the argument dictionary into the `NSMutableDictionary` on which you call the method.
 
-`addEntriesFromDictionary:`
+Create a new mutable dictionary called `favoriteAlbums` and add all the album dictionaries into this by iterating over `mFavoriteBands`. Do not hard code any part of this problem.
 
 
 > Additional resource: http://rypress.com/tutorials/objective-c/data-types/nsdictionary
