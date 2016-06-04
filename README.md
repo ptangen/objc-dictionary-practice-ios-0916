@@ -8,7 +8,7 @@ Let's go over what an **`NSDictionary`** is and how it's structured.
 
 Like an `NSArray`, an `NSDictionary` represents a collection of objects, which are referred to as **values**. You can store objects of any class inside, and those objects can even be `NSArray`s or other `NSDictionaries`.
 
-Unlike an `NSArray`, which keeps track of the order of the objects it contains using an index, *the objects contained in an `NSDictionary` are unordered*. Since an unordered jumble of objects by itself isn't very useful, an `NSDictionary` requires that each of its values have a unique **key**. A key may be of any object type.
+Unlike an `NSArray`, which keeps track of the order of the objects it contains using an index, *the objects contained in an `NSDictionary` are unordered*. Since an unordered jumble of objects by itself isn't very useful, an `NSDictionary` requires that each of its values have a unique **key**. A key may be of any object type, such as an `NSNumber` or `NSString`.
 
 > Think of the following stack of cats as an `NSArray`. The cats are stacked in a particular order, from the bottom up, and if you add or remove a cat at a particular location in the stack, the rest of the stack stays in the same order. Taking a cat (and its shelf) from anywhere but the top end of the stack would cause the rest of the cats to shift down and fill the empty space.
 
@@ -57,38 +57,35 @@ Favorite bands and albums:
 Let's say we're no longer fans of one of our former favorite bands, and we therefore want to remove them from our dictionary. How can we do this? Since we have a mutable dictionary, we can do this using the method `removeObjectForKey:`. Pick one of the bands and remove it from `mFavoriteBands`. Use an `NSLog` to print the contents of `mFavoriteBands` to ensure the band has been removed.
 
 ### Enumerate a dictionary
-What would you use to print to the console just the values within your dictionary? 
-
-By using a `for in` loop we can iterate over the keys of a dictionary. Create a `for in` loop. Inside it
- and use `objectForKey`
-Literal syntax
-
-> **Warning:** Dictionaries should not be altered while iterating over them. Bad things will happen. If you intend to change the values within a dictionary through enumeration, do so by creating a snapshot of the keys of the dictionary and iterating over those. Please see [this source](http://rypress.com/tutorials/objective-c/data-types/nsset#enumeration-considerations) for additional information.
+What would you use to print to the console just the values within your dictionary? By using a `for in` loop we can iterate over the keys of a dictionary. **But be careful!** Dictionaries should not be altered while iterating directly over them. Bad things will happen. If you intend to change the values within a dictionary through enumeration, do so by creating a snapshot of the keys of the dictionary and iterating over those. Please see [this source](http://rypress.com/tutorials/objective-c/data-types/nsset#enumeration-considerations) for additional information.
 
 ### Retrieving keys from a dictionary
 How can we check if our dictionary contains a certain key? What if we want to print out a list of every keys in our dictionary? Or say we want to check and change one or more values in our dictionary. One method we can call on our dictionary to accomplish these goals is `allKeys`, which returns an `NSArray` that contains (as the name suggests) all the keys in the dictionary. We can iterate over this list of keys to reach the appropriate values within our dictionary.
 
+Create a `for in` loop to iterate over the keys in `mFavoriteBands` and use the `objectForKey` method to print out each value it contains with an `NSLog`. 
+
 What if we know that our dictionary contains a certain value, but we don't know what its key or keys are? Or, let's say we know multiple keys have the same value, but we don't know which keys exactly. How might we find those keys? In these instances we could use `keysContaingObject:` on our dictionary, which returns an array of keys whose values match the object we specify.
 
 ### Nested dictionaries
-Let's add some tracks to our favorite albums. Create a new dictionary object for each album and include the track numbers as keys and track titles as values. The track numbers can be written as `NSNumber`s An example might look like this:
+Let's add some tracks to on of our our favorite albums. Create a new dictionary object for an album and include the track numbers as keys and track titles as values. The track numbers can be written as `NSNumber`s An example might look like this:
 
 ```objc
-NSDictionary *physicalWorldTracks = @{  @1 : @"Cheap Talk",
-                                        @2 : @"Right On, Frankenstein!",
-                                        @3 : @"Virgins",
-                                        @4 : @"Always On",
-                                        @5 : @"Crystal Ball",
-                                        @6 : @"White Is Red",
-                                        @7 : @"Trainwreck 1979",
-                                        @8 : @"Nothin' Left",
-                                        @9 : @"Government Trash",
-                                       @10 : @"Gemini",
-                                       @11 : @"The Physical World"  };
-
+NSDictionary *thePhysicalWorld = @{    @1 : @"Cheap Talk",
+                                       @2 : @"Right On, Frankenstein!",
+                                       @3 : @"Virgins",
+                                       @4 : @"Always On",
+                                       @5 : @"Crystal Ball",
+                                       @6 : @"White Is Red",
+                                       @7 : @"Trainwreck 1979",
+                                       @8 : @"Nothin' Left",
+                                       @9 : @"Government Trash",
+                                      @10 : @"Gemini",
+                                      @11 : @"The Physical World"  };
 ```
 
-`dictionary[@"keyInTopDictionary][@"keyInNestedDictionary"]`
+Using the `setObject:forKey:` method and passing in this new dictionary with the album's songs, replace the value for your chosen album in `mFavoriteBands` and use an `NSLog` to print out the entire dictionary and verify your results. 
+
+Using a `for in` loop, `NSLog` each of the songs in this album. Remember that to access the values within a nested dictionary, you need to call on all the higher level keys first. This can be done using the following syntax: `dictionary[@"keyInTopDictionary][@"keyInNestedDictionary"]`.
 
 ### Combine contents of dictionaries
 How would you show all your favorite albums together in a single dictionary without artists? To copy or combine the contents of a dictionary or sub-dictionary into a mutable dictionary, call the method `addEntriesFromDictionary:`. This copies the key-value pairs of the argument dictionary into the `NSMutableDictionary` on which you call the method.
