@@ -69,7 +69,9 @@ Create a `for in` loop to iterate over the keys in `mFavoriteBands` and use the 
 What if we know that our dictionary contains a certain value, but we don't know what its key or keys are? Or, let's say we know multiple keys have the same value, but we don't know which keys exactly. How might we find those keys? In these instances we could use `keysContaingObject:` on our dictionary, which returns an array of keys whose values match the object we specify.
 
 ### Nested dictionaries
-Let's add some tracks to on of our our favorite albums. Create a new dictionary object for an album and include the track numbers as keys and track titles as values. The track numbers can be written as `NSNumber`s An example might look like this:
+Think about nested dictionaries in the context of our puppies from before. In this instance, imagine one of those puppies holds yet another leash to yet another puppy. Dictionaries can nest in the same way. The nested dictionary is just another object with its own key, and it can be accessed just like any other dictionary's value.
+
+Let's add some tracks to one of our our favorite albums. Create a new dictionary object for an album and include the track numbers as keys and track titles as values. The track numbers can be written as `NSNumber`s An example might look like this:
 
 ```objc
 NSDictionary *thePhysicalWorld = @{    @1 : @"Cheap Talk",
@@ -85,9 +87,9 @@ NSDictionary *thePhysicalWorld = @{    @1 : @"Cheap Talk",
                                       @11 : @"The Physical World"  };
 ```
 
-Using the `setObject:forKey:` method and passing in this new dictionary with the album's songs, replace the value for your chosen album in `mFavoriteBands` and use an `NSLog` to print out the entire dictionary and verify your results. 
+Use the `setObject:forKey:` method and pass in this new dictionary with the album's songs, replace the value for your chosen album in `mFavoriteBands`, and use an `NSLog` to print out the entire dictionary and verify your results. 
 
-Using a `for in` loop, `NSLog` each of the songs in this album. Remember that to access the values within a nested dictionary, you need to call on all the higher level keys first. This can be done using the following syntax: `dictionary[@"keyInTopDictionary][@"keyInNestedDictionary"]`.
+Next, use a `for in` loop and `NSLog` each of the songs in this album. Recall that when we want to access a value from the nested dictionary we pass in the key which retrieves the nested dictionary itself, and then the key which retrieves a value from within the nested dictionary. The syntax for this operation looks like this: `topDictionary[@"keyInTopDictionary][@"keyInNestedDictionary"]`.
 
 ### Combine contents of dictionaries
 How would you show all your favorite albums together in a single dictionary without artists? To copy or combine the contents of a dictionary or sub-dictionary into a mutable dictionary, call the method `addEntriesFromDictionary:`. This copies the key-value pairs of the argument dictionary into the `NSMutableDictionary` on which you call the method.
